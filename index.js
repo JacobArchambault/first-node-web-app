@@ -24,11 +24,7 @@ app.get('/location', function (req, res) {       // handle the GET request
     res.send('Location: ' + city + ", " + state);
 });
 
-app.post('/handleForm', function (req, res) {    // handle the POST request
-    var name = req.body.username;   // uses body-parser to get html form element values
-    var seasons = req.body.season;     // checkbox group values return as an array
-    res.send(name + " chose: " + seasons);
-});
+app.post('/handleForm', (req, res) => res.send(req.body.username + " chose: " + req.body.season));
 
 app.use((_req, res) => res.status(404).send("Sorry, no such page!"));
 
