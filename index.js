@@ -15,14 +15,11 @@ app.get('/', function (req, res) {             // send the default page
     res.send(response);
 });
 
-app.get('/location', function (req, res) {       // handle the GET request
-    console.log(req.query);                     // displays query values as an object
-    var city = req.query.city;                  // 'Louisville'
-    var state = req.query.state;                // 'KY'
-    var length = Object.keys(req.query).length; // 2 values
-    console.log("number of values: " + length);
-    res.send('Location: ' + city + ", " + state);
-});
+app.get('/location', (req, res) => {
+        console.log(req.query); // displays query values as an object
+        console.log(`number of values: ${Object.keys(req.query).length}`);
+        res.send(`Location: ${req.query.city}, ${req.query.state}`);
+    });
 
 app.post('/handleForm', (req, res) => res.send(req.body.username + " chose: " + req.body.season));
 
