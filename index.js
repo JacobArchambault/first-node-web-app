@@ -1,5 +1,5 @@
 import express, { urlencoded } from 'express';
-var app = express();
+const app = express();
 app.use(urlencoded({ extended: true }));     // allows handling complex objects
 
 app.get('/', (_req, res) => res.send("<html><body><p><a href='/location?city=Louisville&state=KY'>city & state</a><p> <form action='/handleForm' method='post'>Name: <input name='username'> <p> My Favorite Seasons: <br> <input type=checkbox name='season' value='spring'>Spring <br> <input type=checkbox name='season' value='summer'>Summer<br><input type=checkbox name='season' value='fall'>Fall<br><input type=checkbox name='season' value='winter'>Winter<br> <p><input type=submit value='Submit form!'></form></body> </html>"));
